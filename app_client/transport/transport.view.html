@@ -1,0 +1,70 @@
+<navigation></navigation>
+<div>
+	<div class="row">
+	  <div class="col-xs-12 col-md-9">
+	    <div class="row">
+	      <div class="col-xs-12 col-sm-10">
+	        <h3>{{ vm.transport.busNumber }}</h3>
+	        <div class="card">
+	          <div class="card-title">
+	            <h3>Автобусны мэдээлэл</h3>
+	          </div>
+	          <div class="card-block"></div>
+	          <ul class="list-group list-group-flush">
+	            <li class="list-group-item"><span>Аж ахуйн нэгж:
+	                <h5 style="display: inline"> {{ vm.transport.companyName }} </h5></span></li>
+	            <li class="list-group-item">
+	              <h5>{{ vm.transport.fromDirection }} - {{ vm.transport.toDirection }}</h5><span>гарсан:
+	                <h5 style="display: inline"> {{ vm.transport.fromDate | date : 'yyyy-M-d h:m'}} </h5><br/></span><span>ирэх:
+	                <h5 style="display: inline"> {{ vm.transport.toDate | date : 'yyyy-M-d h:m'}} </h5></span>
+	            </li>
+	            <li class="list-group-item">
+	            	<div ng-repeat="driver in vm.transport.drivers">
+	            		<span>жолооч: 
+	            			<h5 style="display: inline"> {{ driver.name }} </h5><br/>
+	            		</span>
+		                <span>Холбогдох дугаар:
+		               		<h5 style="display: inline"> {{ driver.phone }} </h5>
+		            	</span>
+		            </div>
+		        </li>
+	            <li class="list-group-item"><span>Хурд:
+	                <h5 style="display: inline"> {{ vm.content.speed }} </h5></span>
+	                <input type="number" class="form-control" ng-change="vm.change()" ng-model="vm.restTime" placeholder="Саатсан хугацаа(цаг): жнь:2.5">
+	            </li>
+	          </ul>
+	        </div>
+	      </div>
+	      <!--<div class="col-xs-12 col-sm-6">
+	        <h3>&nbsp;</h3>
+	        <div class="card">
+	          <div class="card-title">
+	            <h3>Ирсэн автобусны мэдээлэл оруулах</h3>
+	          </div>
+	          <div class="card-block">
+	            <form action="/" method="post" class="form-control">
+	              <div class="form-check">
+	                <label class="form-check-label">
+	                  <input id="inlineCheckbox1" ng-model="vm.chb1" type="checkbox" value="option1" class="form-check-input"/> Хоцорсон
+	                </label>
+	              </div>
+	              <div class="form-check">
+	                <label class="form-check-label">
+	                  <input id="inlineCheckbox2" ng-model="vm.chb2" type="checkbox" value="option2" class="form-check-input"/> Хурд хэтрүүлсэн
+	                </label>
+	              </div>
+	              <div class="form-check">
+	                <label class="form-check-label">
+	                  <input id="inlineCheckbox3" ng-model="vm.chb3" type="checkbox" value="option3" class="form-check-input"/> Жолооч солигдсон
+	                </label>
+	              </div><small>&nbsp;
+	                <input type="Submit" ng-click="vm.submit()" class="btn btn-outline-primary"/></small>
+	            </form>
+	          </div>
+	        </div>
+	      </div>-->
+	    </div>
+	  </div>
+	</div>
+	<footer-generic></footer-generic>
+</div>

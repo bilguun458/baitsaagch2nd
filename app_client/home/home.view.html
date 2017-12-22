@@ -1,0 +1,36 @@
+<navigation></navigation>
+<div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8" ng-controller="homeCtrl as hc">
+      <div class="error">{{ vm.message }}</div>
+      <div class="row list-group">
+        <div class="col-xs-12 list-group-item list-group-item-action flex-column align-items-start" ng-repeat="transport in vm.transports">
+          <div class="d-flex w-100 justify-content-between">
+            <h4>{{ transport.busNumber }}</h4>
+            <h6>{{ transport.toDate | date : 'yyyy-M-d h:m'}}</h6>
+          </div>
+          <div class="direction">
+            <span>from:</span>
+            <h6>{{ transport.fromDirection }}</h6>
+            <span>to:</span>
+            <h6>{{ transport.toDirection }}</h6>
+          </div>
+          <p><a href="transport/{{ transport._id }}" role="button" class="btn btn-outline-success">Дэлгэрэнгүй &raquo;</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <div class="container">
+        <div class="card">
+          <div class="card-title">
+            <h3>{{ vm.sidebar.hello }}</h3>
+          </div>
+          <div class="card-block"><img src="https://previews.123rf.com/images/oxygen64/oxygen641208/oxygen64120800029/15028184-City-bus-Stock-Vector-bus-logo-transport.jpg" width="100%" height="auto"/>
+            <h5>{{ vm.sidebar.content }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer-generic></footer-generic>
+</div>
