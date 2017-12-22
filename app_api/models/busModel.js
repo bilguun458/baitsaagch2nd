@@ -47,31 +47,4 @@ change: null
 });
 
 
-{
-    "_id": {
-        "$oid": "5a3c88f0734d1d3cb06f47ad"
-    },
-    "busNumber": "1111УНА",
-    "companyName": "Буянт огоо",
-    "fromDirection": "Чойр",
-    "toDirection": "Улаанбаатар",
-    "fromDate": {
-        "$date": "2017-12-22T06:40:03.389Z"
-    },
-    "toDate": {
-        "$date": "2017-12-20T12:40:03.389Z"
-    },
-    "cameDate": null,
-    "drivers": [
-        {
-            "name": "Лодой",
-            "phone": "99776655"
-        },
-        {
-            "name": "Бат",
-            "phone": "88773344"
-        }
-    ],
-    "distance": 230
-}
 */
