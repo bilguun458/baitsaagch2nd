@@ -49,7 +49,7 @@
             }
             var el = $compile("<test info=\"vm.transports["+i+"]\"></test>")($scope);
             var loc_pos = {"lat": 46.353, "lng": 108.403};
-            /*
+            /*https://quiet-shelf-15599.herokuapp.com/ | https://git.heroku.com/quiet-shelf-15599.git
             var get_loc = function() {
               var deferred = $q.defer();
 
