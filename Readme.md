@@ -1,5 +1,5 @@
 # baitsaagch
-  Авто тээврийн байцаагчийн ажлыг хөнгөвчлөх 
+  Авто тээврийн байцаагчийн ажлыг хөнгөвчлөх аппликейшн
 * Demo
   - [https://baitsaagch.herokuapp.com]
 * Used framework (technology)
