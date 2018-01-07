@@ -5,6 +5,8 @@ var ctrlBuses = require('../controllers/bus');
 /* Transports pages */
 //router.get('/locations/:myId', ctrlLocations.locationsCreate);
 router.get('/transports/:dir', ctrlBuses.transportsListRead);
+router.get('/loc/:bus_num', ctrlBuses.getLocation);
+router.get('/locs', ctrlBuses.getLocations);
 router.get('/transport/:bus_id', ctrlBuses.transportRead);
 router.put('/transport/:bus_id/:late/:speed/:change', ctrlBuses.transportUpdateCameDate);
 router.put('/transport/:bus_id/mistake', ctrlBuses.transportUpdateMistake);

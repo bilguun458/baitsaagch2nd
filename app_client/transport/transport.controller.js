@@ -3,9 +3,11 @@
 	.module('BaitsaagchApp')
 	.controller('transportCtrl', transportCtrl);
 
-	transportCtrl.$inject = ['$routeParams', 'baitsaagchData'];
-	function transportCtrl ($routeParams, baitsaagchData) {
+	transportCtrl.$inject = ['$routeParams', 'baitsaagchData', '$sce', '$window'];
+	function transportCtrl ($routeParams, baitsaagchData, $sce, $window) {
 		var vm = this;
+		var directionsService = new google.maps.DirectionsService;
+		var directionsDisplay = new google.maps.DirectionsRenderer;
 
 		baitsaagchData.getTransport($routeParams.bus_id)
 	    .then(function successCallback(response) {
@@ -15,7 +17,63 @@
 	      	speed : (vm.transport.distance/(((Math.abs(Date.now() - Date.parse(vm.transport.fromDate))) / (1000 * 60 * 60)).toFixed(1))).toFixed(2) + "км/цаг"
 		  };
 
-	      console.log(((Math.abs(Date.now() - Date.parse(vm.transport.fromDate))) / (1000 * 60 * 60)).toFixed(1));
+		  vm.fromDir = vm.transport.directions[0].name;
+		  vm.toDir = vm.transport.directions[vm.transport.directions.length - 1].name;
+
+		  vm.calculateAndDisplayRoute = function() {
+      		baitsaagchData.getLocation()//select deerh loc unshih heseg
+	        .then(function successCallback(response) {
+	          var pos = response.data;
+	          console.log(vm.transport);
+
+	          vm.busMarker = new google.maps.Marker({
+				position: pos,
+				map: vm.map,
+				title: 'Автобус',
+				animation: google.maps.Animation.BOUNCE,
+				label: 'Bus',
+	          });
+
+	        },
+	        function errorCallback(response) {
+	        });
+		    
+		    var routeData = {
+				origin: vm.transport.directions[0].lat + ', ' + vm.transport.directions[0].lng,
+				destination: vm.transport.directions[vm.transport.directions.length - 1].lat + ', ' + vm.transport.directions[vm.transport.directions.length - 1].lng,
+				travelMode: 'DRIVING',
+				waypoints: []
+		    }
+
+		    for (var i = 1; i < vm.transport.directions.length - 1; i++) {
+		    	routeData.waypoints.push({
+				    location: vm.transport.directions[i].lat + ', ' + vm.transport.directions[i].lng,
+				    stopover: true
+				});
+		    }
+
+		    directionsService.route(routeData, function(response, status) {
+			if (status === 'OK') {
+			    directionsDisplay.setDirections(response);
+			} else {
+			    window.alert('Directions request failed due to ' + status);
+			}
+		    });
+
+		}
+		vm.calculateAndDisplayRoute();
+
+		$window.initMap = function() {
+		    vm.map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 6,
+			center: {lat: 46.3529, lng: 108.4032}
+		    });
+		    directionsDisplay.setMap(vm.map);
+		    var marker = vm.busMarker;
+
+		};
+		$window.initMap();
+	      //console.log(((Math.abs(Date.now() - Date.parse(vm.transport.fromDate))) / (1000 * 60 * 60)).toFixed(1));
 	    },
 	    function errorCallback(response) {
 	      console.log("ene duudagdana gej baihguiee");
@@ -36,26 +94,7 @@
 	        	};
 	    	}
       	};
-      	vm.submit = function() {
-		      console.log(vm.transport._id);
-			var late, speed, change;
-			if (vm.chb1 == true)
-				late = true;
-			else
-				late = false;
-			if (vm.chb2 == true)
-				speed = true;
-			else
-				speed = false;
-			if (vm.chb3 == true)
-				change = true;
-			else
-				change = false;
-			baitsaagchData.updateCameDate(vm.transport._id, late, speed, change)
-			.then(function successCallback(response) {
-		    },
-		    function errorCallback(response) {
-		    });
-      	};
+
+      	
 	}
 })();

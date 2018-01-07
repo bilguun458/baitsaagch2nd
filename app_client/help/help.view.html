@@ -1,0 +1,139 @@
+<navigation></navigation>
+<style>
+    .red-color{
+        color: red;
+    }
+</style>
+<div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12">
+      <h4>
+        Авто тээврийн “Байцаагч” - ийн аппликейшны зорилго:
+      </h4>
+      <h7>
+         Байцаагчийг улсын авто тээврийн газрын мэдээлэлтэй шууд холбож өгснөөр ажилд нь өдөр тутам гардаг ирсэн автобуснуудыг бүртгэх, жолоочийн зөрчлийг илрүүлэх (Хоцрох, хурд хэтрүүлэх, хол замд амралт ээлжийн жолооч солихгүй гэх мэт) зэрэг ажлуудыг хөнгөвчлөх
+      </h7>
+      <h4>
+        Аппликейшны ерөнхий интерфэйс болон ажиллагаа:
+      </h4>
+      <h7>
+         Эхний хуудаснаас байцаагч болон иргэд тухайн байршилд ирэх болон дайрч өнгөрөх, дайрч өнгөрсөн автобуснуудын жагсаалт болон тухайн байршлаас хэдэн цагын зайд байгааг дунджаар харах боломжтой ба голд байрлах drowpdown хэсгээс өөрийн байршилаа сонгох боломжтой.
+      </h7>
+      <br/>
+      <br/>
+      <h7>
+         Дэлгэрэнгүй мэдээллийн хуудсанд тухайн автобусны мэдээлэлийг(жолоочийн мэдээлэл, аж ахуйн нэгжийн мэдээлэл) агуулсан ба нийт явсан цаганд тулгуурлан хурдны мэдээллийг харуулна. Байцаагч тухайн автобусны саатсан цаг(хоцорч гарах, автобус эвдрэх, хооллох г.м)-ийн мэдээллийг оруулснаар бодитой дундаж хурдны мэдээллийг авах боломжтой ба газрын зураг дээрээс хаана явж байгаа мэдээллийг харах боломжтой.
+      </h7>
+      <br/>
+      <br/>
+      <h4>
+        Transdep data:
+      </h4>
+      <h6>
+         GET хүсэлтийн хариуд постуудын байршлийн нэр болон байршлыг илэрхийлэх lat, lng талбаруудын мэдээллийг буцаах. Доорх жишээтэй адил байдлаар:
+      </h6>
+      <h7>
+         [<br/>
+          &nbsp;{name:"Улаанбаатар", lat : 47.8864, lng : 106.9057},<br/>
+          &nbsp;{name:"Дархан", lat : 49.4648, lng : 105.9746},<br/>
+          &nbsp;{name:"Чойр", lat : 46.3529, lng : 108.4032},<br/>
+          &nbsp;{name:"Замын Үүд", lat : 43.7152, lng : 111.9041}<br/>
+        ]
+      </h7>
+      <br/>
+      <h6>
+         Улсын дугаар бүхий GET хүсэлт явуулахад тухайн агшин дахь тээврийн хэрэгслийн байршлыг илэрхийлэх lat, lng талбар бүхий өгөгдөл буцаадаг байх. Доорх жишээтэй адил байдлаар:
+      </h6>
+      <h7>
+         {<br/>
+          &nbsp;lat: xxxx,<br/>
+          &nbsp;lng: xxxx,<br/>
+        }
+      </h7>
+      <br/>
+      <h6>
+         Тухайн бичлэгийн ID бүхий GET хүсэлт явуулахад тухайн тээврийн дэлгэрэнгүй мэдээллийг буцаадаг байх. Доорх жишээтэй адил байдлаар:
+      </h6>
+      <h7>
+         {<br/>
+          &nbsp;"_id": "5a4c8324734d1d1b079ee932",<br/>
+          &nbsp;"busNumber": "1234УНА",<br/><br/>
+          &nbsp;"companyName": "Хараацайн жигүүр",<br/>
+          &nbsp;"fromDate": "2018-01-04 09:40:03",<br/>
+          &nbsp;"toDate": "2018-01-04 12:40:03",<br/>
+          &nbsp;"distance": 230,<br/>
+          &nbsp;"drivers": [<br/>
+            &nbsp;&nbsp;{<br/>
+               &nbsp;&nbsp; &nbsp;&nbsp;"name": "Банзрагч",<br/><br/>
+               &nbsp;&nbsp; &nbsp;&nbsp;"phone": "99776655"<br/>
+            &nbsp;&nbsp;}<br/>
+          &nbsp;],<br/>
+          &nbsp;"directions": [<br/>
+            &nbsp;&nbsp;{<br/>
+               &nbsp;&nbsp; &nbsp;&nbsp;"name": "Сайн Шанд",<br/>
+               &nbsp;&nbsp; &nbsp;&nbsp;"lat": 44.8869,<br/>
+               &nbsp;&nbsp; &nbsp;&nbsp;"lng": 110.1345<br/>
+            &nbsp;&nbsp;},<br/>
+            &nbsp;&nbsp;{<br/>
+               &nbsp;&nbsp; &nbsp;&nbsp;"name": "Далан",<br/>
+               &nbsp;&nbsp; &nbsp;&nbsp;"lat": 45.9202,<br/><br/>
+               &nbsp;&nbsp; &nbsp;&nbsp;"lng": 109.0854<br/>
+            &nbsp;&nbsp;}<br/>
+          &nbsp;]<br/>
+        }<br/>
+      </h7>
+      <br/>
+      <h6>
+         Байршил бүхий GET хүсэлт явуулахад тухайн байршилд ирэх болон дайрч өнгөрөх, дайрч өнгөрсөн автобуснуудын жагсаалт өгөгдлийг буцаадаг байх. Доорх жишээтэй адил байдлаар:
+      </h6>
+      <h7>
+        [<br/>
+          &nbsp;{<br/>
+            &nbsp;&nbsp;"_id": "5a4c8324734d1d1b079ee932",<br/>
+            &nbsp;&nbsp;"busNumber": "1234УНА",<br/>
+            &nbsp;&nbsp;"directions": [<br/>
+              &nbsp;&nbsp;&nbsp;{<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;"name": "Замын Үүд",<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;"lat": 43.7152,<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;"lng": 111.9041<br/>
+              &nbsp;&nbsp;&nbsp;},<br/>
+              &nbsp;&nbsp;&nbsp;{<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;"name": "Эрдэнэ",<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;"lat": 44.4491,<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;"lng": 111.0822<br/>
+              &nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;]<br/>
+          &nbsp;},<br/>
+          &nbsp;{<br/>
+            &nbsp;&nbsp;"_id": "5a4c8324734d1d1adsf",<br/>
+            &nbsp;&nbsp;"busNumber": "1111УНА",<br/>
+            &nbsp;&nbsp;"directions": [<br/>
+              &nbsp;&nbsp;&nbsp;{<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;"name": "Замын Үүд",<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;"lat": 43.7152,<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;"lng": 111.9041<br/>
+              &nbsp;&nbsp;&nbsp;},<br/>
+              &nbsp;&nbsp;&nbsp;{<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;"name": "Эрдэнэ",<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;"lat": 44.4491,<br/>
+                &nbsp;&nbsp;&nbsp;&nbsp;"lng": 111.0822<br/>
+              &nbsp;&nbsp;&nbsp;}<br/>
+            &nbsp;&nbsp;]<br/>
+          &nbsp;}<br/>
+        ]
+      </h7>
+      <br/>
+      <br/>
+      <h4>
+        Аппликейшны лиценз
+      </h4>
+      <h6>
+         MIT
+      </h6>
+      <h7>
+        Source: <a href="https://github.com/bilguun458/baitsaagch2nd">Github</a>
+      </h7>
+    </div>
+  </div>
+  <footer-generic></footer-generic>
+</div>

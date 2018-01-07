@@ -11,9 +11,8 @@ var sendJsonResponse = function(res, status, content) {
 module.exports.transportsListRead = function(req, res) {
 	if (req.params && req.params.dir) {
 		busModel
-		.find( {"cameDate" : null, $where: "this.toDirection == '" + req.params.dir + "'" } )
-		.sort({toDate: 1})
-		.select('busNumber fromDirection toDirection toDate cameDate')
+		.find( { directions: { $elemMatch: { name: req.params.dir } } } )
+		.select("busNumber directions")
 		.exec(function(err, transport) {
 			if (!transport) {
 				sendJsonResponse(res, 404, {
@@ -55,6 +54,26 @@ module.exports.transportRead = function(req, res) {
 			"message": "No bus number in request"
 		});
 	}
+};
+//Yag jinhene deer tuhain dugaartai avtobusnii lat long butsaana gej uzne
+module.exports.getLocation = function(req, res) {
+	if (req.params && req.params.bus_num) {
+		transport = {"lat": 46.353, "lng": 108.403};
+		sendJsonResponse(res, 200, transport);
+	} else {
+		sendJsonResponse(res, 404, {
+			"message": "No bus number in request"
+		});
+	}
+};
+
+//jinhenen ni postuudiin location uud , bairhiltai butsaana
+module.exports.getLocations = function(req, res) {
+	locs = [{name:"Улаанбаатар", lat : 47.8864, lng : 106.9057},
+		    {name:"Дархан", lat : 49.4648, lng : 105.9746},
+		    {name:"Чойр", lat : 46.3529, lng : 108.4032},
+		    {name:"Замын Үүд", lat : 43.7152, lng : 111.9041}];
+	sendJsonResponse(res, 200, locs);
 };
 //Ирсэн цаг(cameDate)-ийг update хийх put хүсэлт
 module.exports.transportUpdateCameDate = function(req, res) {

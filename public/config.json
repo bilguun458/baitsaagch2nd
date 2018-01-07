@@ -1,0 +1,6 @@
+{
+  "getTransportsList": "/api/transports/",
+  "getTransport": "/api/transport/",
+  "getLocs": "/api/locs/",
+  "getLocation": "/api/loc/"
+}

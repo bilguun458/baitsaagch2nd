@@ -22,7 +22,6 @@ var appClientFiles = [
 	fs.readFileSync('app_client/app.js', "utf8"),
 	fs.readFileSync('app_client/home/home.controller.js', "utf8"),
 	fs.readFileSync('app_client/transport/transport.controller.js', "utf8"),
-	fs.readFileSync('app_client/home/locSelect.controller.js', "utf8"),
  	fs.readFileSync('app_client/help/help.controller.js', "utf8"),
 	fs.readFileSync('app_client/common/services/baitsaagchData.service.js', "utf8"),
 	fs.readFileSync('app_client/common/services/myGlobalVars.service.js', "utf8"),

@@ -5,7 +5,9 @@
 
 	function myVars () {
 		return {
-	    	name : 'Улаанбаатар'
+	    	name : 'Улаанбаатар',
+	    	lat : 47.8864,
+	    	lng : 106.9057
 		};
 	}
 })();

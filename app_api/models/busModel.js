@@ -5,19 +5,20 @@ var driverSchema = new mongoose.Schema({
     phone: String
 });
 
+var dirSchema = new mongoose.Schema({
+    name: String,
+    lat: Number,
+    long: Number
+});
+
 var transportsSchema = new mongoose.Schema({
 	busNumber: String,
 	companyName: String,
-	fromDirection: String,
-	toDirection: String,
-	fromDate: Date,
-	toDate: Date,
-	cameDate: Date,
+	directions: [dirSchema],
+	fromDate: String,
+	toDate: String,
 	drivers: [driverSchema],
-	distance: Number,
-	late: Boolean,
-	speed: Boolean,
-	change: Boolean
+	distance: Number
 });
 
 mongoose.model('Buss', transportsSchema, 'transports');
@@ -30,7 +31,6 @@ fromDirection: 'Чойр',
 toDirection: 'Улаанбаатар',
 fromDate: ISODate("2017-12-22T06:40:03.389Z"),
 toDate: ISODate("2017-12-20T12:40:03.389Z"),
-cameDate: null,
 drivers: [{
     name: 'Лодой',
     phone: '99776655',
@@ -39,12 +39,37 @@ drivers: [{
     name: 'Бат',
     phone: '88773344',
     }],
-distance: 230,
-velocity: null,
-late: null,
-speed: null,
-change: null
+distance: 230
 });
 
+
+{
+    "busNumber": "1234УНА",
+    "companyName": "Хараацайн жигүүр",
+    "directions": [
+        "Улаанбаатар",
+        "Туул",
+        "Эрдэнэ",
+        "Мааньт",
+        "Хоолт",
+        "Ерөө",
+        "Баянтал",
+        "Шивээ",
+        "Чойр"
+    ],
+    "fromDate": {
+        "$date": "2018-01-04 09:40:03"
+    },
+    "toDate": {
+        "$date": "2017-01-04 12:40:03"
+    },
+    "drivers": [
+        {
+            "name": "Банзрагч",
+            "phone": "99776655"
+        }
+    ],
+    "distance": 230
+}
 
 */
